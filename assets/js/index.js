@@ -28,15 +28,24 @@ window.onload = function(){
 
             let url = `https://viacep.com.br/ws/${cep}/json/`;
 
-            $.post(url, (response) =>{
+            $.ajax({
+                headers: { "Accept": "application/json"},
+                type: 'GET',
+                url: url,
+                crossDomain: true,
+                success: (data, textStatus, request) =>{
 
-                console.log(response);
+                    logradouroEl.val(data.logradouro);
+                    bairroEl.val(data.bairro);
+                    data.complementoEl != "" ? complementoEl.val(data.complementoEl) : complementoEl.val("");
+                    localidadeEl.val(data.localidade);
+                    ufEl.val(data.uf);
+
+                }
             });
 
         })
 
         resolve();
     }
-
-
 }
