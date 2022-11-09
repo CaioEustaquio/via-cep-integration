@@ -76,8 +76,15 @@ form input:focus{
     height: 50px;
     background-color: #2980b9;
     border-radius: 10px;
+    outline: none;
 }
 
 #btnSubmit:hover{
     cursor: pointer;
+}
+
+@media(max-width:450px){
+    .section-form{
+        width: 90vw;
+    }    
 }
